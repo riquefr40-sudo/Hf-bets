@@ -1,0 +1,275 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+#detalhe {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo para quando a tabela estiver ativa (mostrada via JS) */
+.league-panel.show {
+  display: block;
+}
+/* --- ESTILO DO BOTÃO DE ANÁLISE --- */
+
+.radar-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn-radar-ia {
+  background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito ao passar o mouse ou clicar */
+.btn-radar-ia:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 230, 118, 0.7);
+}
+
+.btn-radar-ia:active {
+  transform: scale(0.95);
+}
+
+/* Círculo de pulso atrás do botão */
+.pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 230, 118, 0.5);
+  border-radius: 50px;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  animation: radar-glow 2s infinite;
+  }
+
+@keyframes radar-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Estilo do ícone de robô */
+.icon {
+  font-size: 18px;
+}
+/* Estilo da letra explicada */
+.prediction-detail {
+  font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal */
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ffffff; /* Branco para legibilidade total */
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  border-left: 3px solid #00e676;
+}
+
+/* Nova cor para o card da Champions (Especial) */
+.radar-card.especial {
+  border-left-color: #00d2ff;
+}
+/* --- MENU RODAPÉ H BETS --- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background-color: #111b15; /* Verde da sua logo */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid #b59952; /* Linha dourada da logo */
+  z-index: 1000;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+}
+nav-item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.nav-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Efeito quando o botão está ativo ou é clicado */
+.nav-item:active, .nav-item.active {
+  color: #b59952; /* Dourado da logo */
+  transform: scale(1.1);
+}
+
+/* Espaçamento para o conteúdo não ficar escondido atrás do menu */
+body {
+  padding-bottom: 80px;
+}
+/* --- MODAL DA CALCULADORA --- */
+.modal-gestao {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #111b15;
+  border: 2px solid #b59952;
+  padding: 25px;
+  width: 85%;
+  max-width: 400px;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-title {
+  color: #b59952;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+  margin-bottom: 20px;
+}
+
+.results-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.res-card {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+}
+  cursor: pointer;
+}
+.league-item {
+  margin-bottom: 10px;
+}
+q
+  z-index: 9999; /* Fica na frente de tudo */
+  transition: opacity 0.5s ease;
+}
+
+.splash-content 
+  text-align: center;
+}
+
+.splash-logo {
+  color: #b59952;
+  font-size: 3rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(181, 153, 82, 0.6);
+  animation: pulseLogo 1.5s infinite ease-in-out;
+  loader {
+  border: 4px solid #1a2a21;
+  border-top: 4px solid #b59952;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+.splash-content p {
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseLogo {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
